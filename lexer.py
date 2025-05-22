@@ -1,10 +1,17 @@
-import re
+# Part 2: Add Logical and Comparison Operators
 
-# Part 1: Arithmetic Tokenizer
-
-# Token types (Arithmetic only)
+# Extended Token types
 TOKEN_SPECIFICATION = [
     ('NUMBER',   r'\d+'),
+    ('AND',      r'&&'),
+    ('OR',       r'\|\|'),
+    ('NOT',      r'!'),
+    ('EQ',       r'=='),
+    ('NEQ',      r'!='),
+    ('GTE',      r'>='),
+    ('LTE',      r'<='),
+    ('GT',       r'>'),
+    ('LT',       r'<'),
     ('ADD',      r'\+'),
     ('SUB',      r'-'),
     ('MUL',      r'\*'),
@@ -24,7 +31,8 @@ def tokenize(expression):
         value = match.group()
         if kind == 'NUMBER':
             tokens.append(('NUMBER', int(value)))
-        elif kind in ('ADD', 'SUB', 'MUL', 'DIV', 'LPAREN', 'RPAREN'):
+        elif kind in ('ADD', 'SUB', 'MUL', 'DIV', 'LPAREN', 'RPAREN',
+                      'AND', 'OR', 'NOT', 'EQ', 'NEQ', 'GT', 'LT', 'GTE', 'LTE'):
             tokens.append((kind, value))
         elif kind == 'SKIP':
             continue
