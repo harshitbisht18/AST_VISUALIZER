@@ -1,6 +1,6 @@
-# Part 2: Add Logical and Comparison Operators
+# Part 3: Add Conditional Keywords
 
-# Extended Token types
+# Final Token types
 TOKEN_SPECIFICATION = [
     ('NUMBER',   r'\d+'),
     ('AND',      r'&&'),
@@ -18,6 +18,9 @@ TOKEN_SPECIFICATION = [
     ('DIV',      r'/'),
     ('LPAREN',   r'\('),
     ('RPAREN',   r'\)'),
+    ('IF',       r'if'),
+    ('THEN',     r'then'),
+    ('ELSE',     r'else'),
     ('SKIP',     r'[ \t]+'),
     ('MISMATCH', r'.'),
 ]
@@ -32,7 +35,8 @@ def tokenize(expression):
         if kind == 'NUMBER':
             tokens.append(('NUMBER', int(value)))
         elif kind in ('ADD', 'SUB', 'MUL', 'DIV', 'LPAREN', 'RPAREN',
-                      'AND', 'OR', 'NOT', 'EQ', 'NEQ', 'GT', 'LT', 'GTE', 'LTE'):
+                      'AND', 'OR', 'NOT', 'EQ', 'NEQ', 'GT', 'LT', 'GTE', 'LTE',
+                      'IF', 'THEN', 'ELSE'):
             tokens.append((kind, value))
         elif kind == 'SKIP':
             continue
