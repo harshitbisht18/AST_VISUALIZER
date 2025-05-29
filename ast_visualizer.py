@@ -2,9 +2,8 @@ import tkinter as tk
 from tkinter import Canvas
 
 class ASTVisualizer:
-    def __init__(self, root, ast):
-        self.canvas = Canvas(root, width=700, height=500, bg="white")
-        self.canvas.pack()
+    def __init__(self, canvas, ast):
+        self.canvas = canvas  # Use existing canvas from main.py
         self.draw_ast(ast, 350, 50, 150)
 
     def draw_ast(self, node, x, y, offset):
@@ -18,7 +17,6 @@ class ASTVisualizer:
 
         # IF node: has three children - condition, true_branch, false_branch
         if node.type == 'IF':
-            # Children positions horizontally spaced
             cond_x = x - offset
             true_x = x
             false_x = x + offset
