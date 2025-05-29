@@ -1,4 +1,5 @@
 # Part 3: Add Conditional Keywords
+import re
 
 # Final Token types
 TOKEN_SPECIFICATION = [
