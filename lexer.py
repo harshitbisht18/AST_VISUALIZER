@@ -1,7 +1,6 @@
-# Part 3: Add Conditional Keywords
 import re
 
-# Final Token types
+# Token types
 TOKEN_SPECIFICATION = [
     ('NUMBER',   r'\d+'),
     ('AND',      r'&&'),
